@@ -32,7 +32,7 @@ collisionsMap.forEach((row, i) => {
 });
 
 const image = new Image();
-image.src = "/Images/Pellet-Town.png";
+image.src = "https://rowinruizendaal.github.io/portfolio-game/Images/Pellet-Town.png";
 
 const foregroundImage = new Image();
 foregroundImage.src = "https://rowinruizendaal.github.io/portfolio-game/Images/foregroundObjects.png";
