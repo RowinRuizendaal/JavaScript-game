@@ -50,7 +50,6 @@ const playerDownImage = new Image();
 playerDownImage.src =
     "https://rowinruizendaal.github.io/portfolio-game/Images/playerDown.png";
 
-
 const playerUpImage = new Image();
 playerUpImage.src =
     "https://rowinruizendaal.github.io/portfolio-game/Images/playerUp.png";
