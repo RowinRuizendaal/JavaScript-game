@@ -3,10 +3,7 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
-const upButton = document.querySelector(".gamepad-button-up");
-const downButton = document.querySelector(".gamepad-button-down");
-const leftButton = document.querySelector(".gamepad-button-left");
-const rightButton = document.querySelector(".gamepad-button-right");
+const mobileContols = document.querySelectorAll("#control");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -20,7 +17,7 @@ for (let i = 0; i < collisions.length; i += 70) {
 
 const boundaries = [];
 const offset = {
-    x: isMobile() ? -1130 : -300,
+    x: isMobile() ? -800 : -300,
     y: -450,
 };
 
@@ -65,10 +62,10 @@ playerRightImage.src =
 const player = new Sprite({
     position: {
         x: isMobile() ?
-            canvas.width / 2 - 900 / 4 / 2 :
+            canvas.width / 2 - window.innerHeight / 4 / 2 :
             canvas.width / 2 - 192 / 4 / 2,
         y: isMobile() ?
-            canvas.height / 2 - -80 / 4 / 2 :
+            canvas.height / 2 - 20 / 4 / 2 :
             canvas.height / 2 - 68 / 4 / 2,
     },
     image: playerDownImage,
@@ -257,7 +254,6 @@ animate();
 let lastKey = "";
 
 window.addEventListener("keydown", (e) => {
-    console.log(e.key);
     switch (e.key) {
         case "w":
         case "ArrowUp":
@@ -304,40 +300,48 @@ window.addEventListener("keyup", (e) => {
 });
 
 // Mobile controls
-upButton.addEventListener("touchstart", () => {
-    keys.w.pressed = true;
-    lastKey = "w";
+mobileContols.forEach((control) => {
+    control.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        switch (e.target.id) {
+            case "up":
+                keys.w.pressed = true;
+                lastKey = "w";
+                break;
+            case "down":
+                keys.s.pressed = true;
+                lastKey = "s";
+                break;
+            case "left":
+                keys.a.pressed = true;
+                lastKey = "a";
+                break;
+            case "right":
+                keys.d.pressed = true;
+                lastKey = "d";
+                break;
+        }
+    });
 });
 
-upButton.addEventListener("touchend", () => {
-    keys.w.pressed = false;
-});
-
-downButton.addEventListener("touchstart", () => {
-    keys.s.pressed = true;
-    lastKey = "s";
-});
-
-downButton.addEventListener("touchend", () => {
-    keys.s.pressed = false;
-});
-
-leftButton.addEventListener("touchstart", () => {
-    keys.a.pressed = true;
-    lastKey = "a";
-});
-
-leftButton.addEventListener("touchend", () => {
-    keys.a.pressed = false;
-});
-
-rightButton.addEventListener("touchstart", () => {
-    keys.d.pressed = true;
-    lastKey = "d";
-});
-
-rightButton.addEventListener("touchend", () => {
-    keys.d.pressed = false;
+mobileContols.forEach((control) => {
+    control.addEventListener("touchend", (e) => {
+        e.preventDefault();
+        switch (e.target.id) {
+            case "up":
+                keys.w.pressed = false;
+                break;
+            case "down":
+                keys.s.pressed = false;
+                break;
+            case "left":
+                keys.a.pressed = false;
+                break;
+            case "right":
+                keys.d.pressed = false;
+                break;
+        }
+    });
 });
 
 // bypass for now

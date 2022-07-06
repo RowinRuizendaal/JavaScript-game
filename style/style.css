@@ -46,6 +46,8 @@ canvas {
     text-align: center;
     left: 0;
     right: 0;
+    border: 0;
+    padding: 0;
 }
 
 .mobile .gamepad-button-down {
@@ -53,12 +55,16 @@ canvas {
     left: 50%;
     transform: translate(-50%);
     z-index: 9;
+    border: 0;
+    padding: 0;
 }
 
 .mobile .gamepad-button-left {
     position: absolute;
     left: 0;
     right: 0;
+    border: 0;
+    padding: 0;
 }
 
 .mobile .gamepad-button-right {
