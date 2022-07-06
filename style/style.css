@@ -22,52 +22,49 @@ canvas {
 
 /* Mobile */
 
-.mobile .mobile-gamepad {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 3rem 0.5rem;
-}
-
-.mobile .controls {
-    width: 10rem;
-    position: relative;
-    font-size: 2rem;
-    margin-top: 10rem;
-    background-color: blueviolet;
-}
-
-.mobile .gamepad-button-up {
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    left: 0;
-    right: 0;
-    border: 0;
-    padding: 0;
-}
-
-.mobile .gamepad-button-down {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    z-index: 9;
-    border: 0;
-    padding: 0;
-}
-
-.mobile .gamepad-button-left {
-    position: absolute;
-    left: 0;
-    right: 0;
-    border: 0;
-    padding: 0;
-}
-
-.mobile .gamepad-button-right {
-    position: absolute;
-    right: 0;
+@media only screen and (max-width: 600px) {
+    .mobile .mobile-gamepad {
+        position: absolute;
+        display: block;
+        bottom: 1rem;
+        right: 0;
+        padding: 3rem 0.2rem;
+    }
+    .mobile .controls {
+        position: relative;
+        width: 10rem;
+        font-size: 2rem;
+    }
+    .mobile .gamepad-button-up {
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        left: 0;
+        right: 0;
+        margin-bottom: 1rem;
+    }
+    .mobile .gamepad-button-down {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        z-index: 9;
+        margin-top: 0.5rem;
+    }
+    .mobile .gamepad-button-left {
+        position: absolute;
+        left: 0;
+        right: 0;
+        border: 0;
+    }
+    .mobile .gamepad-button-right {
+        position: absolute;
+        right: 0;
+    }
+    .mobile span {
+        background-color: #333232;
+        color: white;
+        padding: 1rem;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
 }
