@@ -1,11 +1,15 @@
 // Index.js file for the application
 
 const canvas = document.querySelector("canvas");
-
 const ctx = canvas.getContext("2d");
 
-canvas.width = 1920;
-canvas.height = 1080;
+const upButton = document.querySelector(".gamepad-button-up");
+const downButton = document.querySelector(".gamepad-button-down");
+const leftButton = document.querySelector(".gamepad-button-left");
+const rightButton = document.querySelector(".gamepad-button-right");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 const collisionsMap = [];
 
@@ -15,7 +19,10 @@ for (let i = 0; i < collisions.length; i += 70) {
 }
 
 const boundaries = [];
-const offset = { x: -300, y: -450 };
+const offset = {
+    x: isMobile() ? -1130 : -300,
+    y: -450,
+};
 
 collisionsMap.forEach((row, i) => {
     row.forEach((symbol, j) => {
@@ -32,27 +39,37 @@ collisionsMap.forEach((row, i) => {
 });
 
 const image = new Image();
-image.src = "https://rowinruizendaal.github.io/portfolio-game/Images/Pellet-Town.png";
+image.src =
+    "https://rowinruizendaal.github.io/portfolio-game/Images/Pellet-Town.png";
 
 const foregroundImage = new Image();
-foregroundImage.src = "https://rowinruizendaal.github.io/portfolio-game/Images/foregroundObjects.png";
+foregroundImage.src =
+    "https://rowinruizendaal.github.io/portfolio-game/Images/foregroundObjects.png";
 
 const playerDownImage = new Image();
-playerDownImage.src = "https://rowinruizendaal.github.io/portfolio-game/Images/playerDown.png";
+playerDownImage.src =
+    "https://rowinruizendaal.github.io/portfolio-game/Images/playerDown.png";
 
 const playerUpImage = new Image();
-playerUpImage.src = "https://rowinruizendaal.github.io/portfolio-game/Images/playerUp.png";
+playerUpImage.src =
+    "https://rowinruizendaal.github.io/portfolio-game/Images/playerUp.png";
 
 const playerLeftImage = new Image();
-playerLeftImage.src = "https://rowinruizendaal.github.io/portfolio-game/Images/playerLeft.png";
+playerLeftImage.src =
+    "https://rowinruizendaal.github.io/portfolio-game/Images/playerLeft.png";
 
 const playerRightImage = new Image();
-playerRightImage.src = "https://rowinruizendaal.github.io/portfolio-game/Images/playerRight.png";
+playerRightImage.src =
+    "https://rowinruizendaal.github.io/portfolio-game/Images/playerRight.png";
 
 const player = new Sprite({
     position: {
-        x: canvas.width / 2 - 192 / 4 / 2,
-        y: canvas.height / 2 - 68 / 2,
+        x: isMobile() ?
+            canvas.width / 2 - 900 / 4 / 2 :
+            canvas.width / 2 - 192 / 4 / 2,
+        y: isMobile() ?
+            canvas.height / 2 - 10 / 4 / 2 :
+            canvas.height / 2 - 68 / 4 / 2,
     },
     image: playerDownImage,
     frames: {
@@ -240,20 +257,25 @@ animate();
 let lastKey = "";
 
 window.addEventListener("keydown", (e) => {
+    console.log(e.key);
     switch (e.key) {
         case "w":
+        case "ArrowUp":
             keys.w.pressed = true;
             lastKey = "w";
             break;
         case "a":
+        case "ArrowLeft":
             keys.a.pressed = true;
             lastKey = "a";
             break;
         case "s":
+        case "ArrowDown":
             keys.s.pressed = true;
             lastKey = "s";
             break;
         case "d":
+        case "ArrowRight":
             keys.d.pressed = true;
             lastKey = "d";
             break;
@@ -263,16 +285,66 @@ window.addEventListener("keydown", (e) => {
 window.addEventListener("keyup", (e) => {
     switch (e.key) {
         case "w":
+        case "ArrowUp":
             keys.w.pressed = false;
             break;
         case "a":
+        case "ArrowLeft":
             keys.a.pressed = false;
             break;
         case "s":
+        case "ArrowDown":
             keys.s.pressed = false;
             break;
         case "d":
+        case "ArrowRight":
             keys.d.pressed = false;
             break;
+    }
+});
+
+// Mobile controls
+upButton.addEventListener("touchstart", () => {
+    keys.w.pressed = true;
+    lastKey = "w";
+});
+
+upButton.addEventListener("touchend", () => {
+    keys.w.pressed = false;
+});
+
+downButton.addEventListener("touchstart", () => {
+    keys.s.pressed = true;
+    lastKey = "s";
+});
+
+downButton.addEventListener("touchend", () => {
+    keys.s.pressed = false;
+});
+
+leftButton.addEventListener("touchstart", () => {
+    keys.a.pressed = true;
+    lastKey = "a";
+});
+
+leftButton.addEventListener("touchend", () => {
+    keys.a.pressed = false;
+});
+
+rightButton.addEventListener("touchstart", () => {
+    keys.d.pressed = true;
+    lastKey = "d";
+});
+
+rightButton.addEventListener("touchend", () => {
+    keys.d.pressed = false;
+});
+
+// bypass for now
+let clicked = false;
+addEventListener("click", () => {
+    if (!clicked) {
+        audio.Map.play();
+        clicked = true;
     }
 });

@@ -8,3 +8,60 @@ body {
     background-color: black;
     overflow: hidden;
 }
+
+canvas {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+}
+
+.mobile-gamepad {
+    display: none;
+}
+
+
+/* Mobile */
+
+.mobile .mobile-gamepad {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3rem 0.5rem;
+}
+
+.mobile .controls {
+    width: 10rem;
+    position: relative;
+    font-size: 2rem;
+    margin-top: 10rem;
+    background-color: blueviolet;
+}
+
+.mobile .gamepad-button-up {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    left: 0;
+    right: 0;
+}
+
+.mobile .gamepad-button-down {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 9;
+}
+
+.mobile .gamepad-button-left {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.mobile .gamepad-button-right {
+    position: absolute;
+    right: 0;
+}
