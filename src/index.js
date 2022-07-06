@@ -68,7 +68,7 @@ const player = new Sprite({
             canvas.width / 2 - 900 / 4 / 2 :
             canvas.width / 2 - 192 / 4 / 2,
         y: isMobile() ?
-            canvas.height / 2 - 10 / 4 / 2 :
+            canvas.height / 2 - -80 / 4 / 2 :
             canvas.height / 2 - 68 / 4 / 2,
     },
     image: playerDownImage,
