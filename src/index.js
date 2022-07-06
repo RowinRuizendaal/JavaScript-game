@@ -32,22 +32,22 @@ collisionsMap.forEach((row, i) => {
 });
 
 const image = new Image();
-image.src = "./Images/Pellet-Town.png";
+image.src = "/Images/Pellet-Town.png";
 
 const foregroundImage = new Image();
-foregroundImage.src = "./Images/foregroundObjects.png";
+foregroundImage.src = "/Images/foregroundObjects.png";
 
 const playerDownImage = new Image();
-playerDownImage.src = "./Images/playerDown.png";
+playerDownImage.src = "/Images/playerDown.png";
 
 const playerUpImage = new Image();
-playerUpImage.src = "./Images/playerUp.png";
+playerUpImage.src = "/Images/playerUp.png";
 
 const playerLeftImage = new Image();
-playerLeftImage.src = "./Images/playerLeft.png";
+playerLeftImage.src = "/Images/playerLeft.png";
 
 const playerRightImage = new Image();
-playerRightImage.src = "./Images/playerRight.png";
+playerRightImage.src = "/Images/playerRight.png";
 
 const player = new Sprite({
     position: {
