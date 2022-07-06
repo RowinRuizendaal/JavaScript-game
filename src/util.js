@@ -1,6 +1,4 @@
 const isMobile = () => {
-    // basic easy check for now
-    console.log(window.innerWidth);
     return window.innerWidth < 768;
 };
 

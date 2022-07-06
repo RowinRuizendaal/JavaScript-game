@@ -1,2 +1,6 @@
-# portfolio-game
-Just a fun project where I try to understand javascript 
+# portfolio-game 
+
+![alt text](./Images/readme/game.png)
+
+On mobile:
+![alt text](./Images/readme/mobile.png)
