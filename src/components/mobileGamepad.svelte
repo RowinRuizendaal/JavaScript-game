@@ -20,6 +20,15 @@
         handleMobileMovementTouchEnd(e.target.id);
       });
     });
+
+
+    mobileGamePadActions.forEach((action) => {
+      action.addEventListener("click", (e) => {
+        handleMobileMovementTouchStart(e.target.id);
+      });
+    });
+
+
   });
 </script>
 

@@ -1,23 +1,19 @@
+// import {} from "../assets"
+
 export const image = new Image();
-image.src =
-    "https://rowinruizendaal.github.io/portfolio-game/Images/Pellet-Town.png";
+image.src = "Pellet-town.png";
 
 export const playerDownImage = new Image();
-playerDownImage.src =
-    "https://rowinruizendaal.github.io/portfolio-game/Images/playerDown.png";
+playerDownImage.src = "playerDown.png";
 
 export const playerUpImage = new Image();
-playerUpImage.src =
-    "https://rowinruizendaal.github.io/portfolio-game/Images/playerUp.png";
+playerUpImage.src = "playerUp.png";
 
 export const playerLeftImage = new Image();
-playerLeftImage.src =
-    "https://rowinruizendaal.github.io/portfolio-game/Images/playerLeft.png";
+playerLeftImage.src = "playerLeft.png";
 
 export const playerRightImage = new Image();
-playerRightImage.src =
-    "https://rowinruizendaal.github.io/portfolio-game/Images/playerRight.png";
+playerRightImage.src = "playerRight.png";
 
 export const foregroundImage = new Image();
-foregroundImage.src =
-    "https://rowinruizendaal.github.io/portfolio-game/Images/foregroundObjects.png";
+foregroundImage.src = "foregroundObjects.png";

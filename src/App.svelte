@@ -9,6 +9,7 @@
   import { canvas as canvasSizes } from "./lib/constants.js";
   import { generateBoundaries } from "./lib/boundaries.js";
   import MobileGamepad from "./components/mobileGamepad.svelte";
+  import Modal from "./components/modal.svelte";
 
   export let canvas;
   export let ctx;
@@ -40,6 +41,8 @@
 
 <main>
   <body>
+
+    <Modal />
     <canvas
       bind:this={canvas}
       width={canvasSizes.width}
@@ -55,5 +58,6 @@
     height: 100vh;
     width: 100vw;
     object-fit: cover;
+    position: relative;
   }
 </style>
