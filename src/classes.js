@@ -1,4 +1,8 @@
-class Sprite {
+// import ctx from app.svelte:
+
+// import { ctx } from "App.svelte";
+
+export class Sprite {
     constructor({ position, velocity, image, frames = { max: 1 }, sprites }) {
         this.position = position;
         this.image = image;
@@ -33,20 +37,5 @@ class Sprite {
             if (this.frames.val < this.frames.max - 1) this.frames.val++;
             else this.frames.val = 0;
         }
-    }
-}
-
-class Boundary {
-    static width = 48;
-    static height = 48;
-    constructor({ position }) {
-        this.position = position;
-        this.width = 48;
-        this.height = 48;
-    }
-
-    draw() {
-        ctx.fillStyle = "rgb(255, 0, 0, 0)";
-        ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
 }

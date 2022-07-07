@@ -2,44 +2,28 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal project v-1</title>
-    <link rel="stylesheet" href="style/style.css">
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Svelte + Vite App</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            overflow: hidden;
+        }
+    </style>
 </head>
 
-<main>
-
-    <body>
-        <canvas></canvas>
-
-        <!-- mobile gamepad -->
-        <div class="mobile-gamepad">
-            <div class="controls">
-                <div class="gamepad-button-up" id="control">
-                    <span id="up">&#8593;</span>
-
-                </div>
-                <div class="gamepad-button-down" id="control">
-                    <span id="down">&#8595;</span>
-                </div>
-                <div class="gamepad-button-left" id="control">
-                    <span id="left">&#8592;</span>
-                </div>
-                <div class="gamepad-button-right" id="control">
-                    <span id="right">&#8594;</span>
-                </div>
-            </div>
-        </div>
-    </body>
-
-</main>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js" integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="src/audio.js"></script>
-<script src="src/util.js"></script>
-<script src="src/collisions.js"></script>
-<script src="src/classes.js"></script>
-<script src="src/index.js"></script>
+<body>
+    <div id="app"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js" integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="/src/main.js"></script>
+</body>
 
 </html>
