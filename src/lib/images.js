@@ -1,7 +1,7 @@
 // import {} from "../assets"
 
 export const image = new Image();
-image.src = "Pellet-town.png";
+image.src = "Pellet-Town.png";
 
 export const playerDownImage = new Image();
 playerDownImage.src = "playerDown.png";
