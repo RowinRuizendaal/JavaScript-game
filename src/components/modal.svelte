@@ -18,6 +18,9 @@
 {/if}
 
 <style>
+    .modal {
+        display: none;
+    }
   @media only screen and (max-width: 768px) {
     .modal {
       position: absolute;
