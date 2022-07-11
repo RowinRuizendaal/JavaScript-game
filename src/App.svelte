@@ -9,10 +9,21 @@
   import { canvas as canvasSizes } from "./lib/constants.js";
   import { generateBoundaries } from "./lib/boundaries.js";
   import MobileGamepad from "./components/mobileGamepad.svelte";
-  import Modal from "./components/modal.svelte";
+  import Dialogue from "./components/dialogue.svelte";
+  import { intro } from "./lib/dialogues.js";
+  import { audio } from "./lib/audio.js";
 
   export let canvas;
   export let ctx;
+
+  let clicked = false;
+
+  const playAudio = () => {
+    if (!clicked) {
+      audio.Map.play();
+      clicked = true;
+    }
+  };
 
   onMount(() => {
     canvas = document.querySelector("canvas");
@@ -31,7 +42,12 @@
     });
 
     window.addEventListener("keyup", (e) => {
+      playAudio();
       handleMovementKeyUp(e.key);
+    });
+
+    window.addEventListener("click", (e) => {
+      playAudio();
     });
 
     animate();
@@ -41,13 +57,12 @@
 
 <main>
   <body>
-
-    <Modal />
     <canvas
       bind:this={canvas}
       width={canvasSizes.width}
       height={canvasSizes.height}
     />
+    <Dialogue visible={true} text={intro} />
 
     <MobileGamepad />
   </body>

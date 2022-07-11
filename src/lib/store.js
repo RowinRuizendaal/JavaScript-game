@@ -18,3 +18,4 @@ export const keys = writable({
 });
 export const lastKey = writable("");
 export const boundaries = writable([]);
+export const dialogueActive = writable(true);

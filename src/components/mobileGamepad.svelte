@@ -1,54 +1,64 @@
 <script>
   // @ts-nocheck
+  import { afterUpdate } from "svelte";
+  import {
+    handleMobileMovementTouchStart,
+    handleMobileMovementTouchEnd,
+  } from "../lib/movement.js";
+  import { dialogueActive } from "../lib/store.js";
 
-  import { onMount } from "svelte";
-  import { handleMobileMovementTouchStart, handleMobileMovementTouchEnd } from "../lib/movement.js";
+  let hideMobileGamePad = true;
 
-  onMount(() => {
-    const mobileGamePadActions = document.querySelectorAll("#control");
+  dialogueActive.subscribe((value) => {
+    hideMobileGamePad = value;
+  });
 
-    mobileGamePadActions.forEach((action) => {
-      action.addEventListener("touchstart", (e) => {
-        e.preventDefault();
-        handleMobileMovementTouchStart(e.target.id);
+  afterUpdate(() => {
+    if (!hideMobileGamePad) {
+      const mobileGamePadActions = document.querySelectorAll("#control");
+
+      mobileGamePadActions.forEach((action) => {
+        action.addEventListener("touchstart", (e) => {
+          e.preventDefault();
+          handleMobileMovementTouchStart(e.target.id);
+        });
       });
-    });
 
-    mobileGamePadActions.forEach((action) => {
-      action.addEventListener("touchend", (e) => {
-        e.preventDefault();
-        handleMobileMovementTouchEnd(e.target.id);
+      mobileGamePadActions.forEach((action) => {
+        action.addEventListener("touchend", (e) => {
+          e.preventDefault();
+          handleMobileMovementTouchEnd(e.target.id);
+        });
       });
-    });
 
-
-    mobileGamePadActions.forEach((action) => {
-      action.addEventListener("click", (e) => {
-        handleMobileMovementTouchStart(e.target.id);
+      mobileGamePadActions.forEach((action) => {
+        action.addEventListener("click", (e) => {
+          handleMobileMovementTouchStart(e.target.id);
+        });
       });
-    });
-
-
+    }
   });
 </script>
 
 <!-- mobile gamepad -->
-<div class="mobile-gamepad">
-  <div class="controls">
-    <div class="gamepad-button-up" id="control">
-      <span id="up">&#8593;</span>
-    </div>
-    <div class="gamepad-button-down" id="control">
-      <span id="down">&#8595;</span>
-    </div>
-    <div class="gamepad-button-left" id="control">
-      <span id="left">&#8592;</span>
-    </div>
-    <div class="gamepad-button-right" id="control">
-      <span id="right">&#8594;</span>
+{#if !hideMobileGamePad}
+  <div class="mobile-gamepad">
+    <div class="controls">
+      <div class="gamepad-button-up" id="control">
+        <span id="up">&#8593;</span>
+      </div>
+      <div class="gamepad-button-down" id="control">
+        <span id="down">&#8595;</span>
+      </div>
+      <div class="gamepad-button-left" id="control">
+        <span id="left">&#8592;</span>
+      </div>
+      <div class="gamepad-button-right" id="control">
+        <span id="right">&#8594;</span>
+      </div>
     </div>
   </div>
-</div>
+{/if}
 
 <style>
   .mobile-gamepad {
@@ -64,6 +74,7 @@
       bottom: 1rem;
       right: 0;
       padding: 3rem 0.2rem;
+      z-index: 99999;
     }
     .controls {
       position: relative;
