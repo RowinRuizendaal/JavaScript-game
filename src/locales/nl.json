@@ -1,0 +1,16 @@
+{
+    "dialouge": {
+        "intro": {
+            "p1": "Hallo daar onbekende 👋!",
+            "p2": "Mijn naam is Rowin Ruizendaal en ik ben in 2022 afgestudeerd aan de bachelor opleiding communicatie en multimedia design aan de Hogeschool van Amsterdam",
+            "p3": "Tijdens mijn studie heb ik me weten te specialiseren in front-end development, waarbij ik begon te leren programmeren met PHP en mijn weg vond in de JavaScript-wereld.",
+            "p4": "Vanaf dit punt werk ik aan mijn eigen projecten en leer ik constant nieuwe dingen.",
+            "p5": "Voel je vrij om mijn portfolio te verkennen en meer over mij te weten te komen.",
+            "p6": "U kunt de gamepad gebruiken om over de kaart te bewegen.",
+            "p7": "U kunt lopen met de WASD-toetsen om over de kaart te bewegen."
+        },
+        "controls": {
+            "continue": "Klik om verder te gaan"
+        }
+    }
+}

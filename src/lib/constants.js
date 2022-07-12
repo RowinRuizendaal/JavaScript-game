@@ -5,10 +5,9 @@ export const offset = {
     y: -450,
 };
 
-export const canvasWidth = window.innerWidth;
-export const canvasHeight = window.innerHeight;
-
 export let canvas = {
     width: window.innerWidth,
     height: window.innerHeight,
 };
+
+export let tiledMapWidth = 70;

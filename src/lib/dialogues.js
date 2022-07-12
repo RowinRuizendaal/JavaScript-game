@@ -1,24 +1,30 @@
+import { isMobile } from "./utils";
+import { _ } from "svelte-i18n";
+
 export const intro = {
-    description: [{
-            text: "Welcome to Pellet Town!",
+    dialouge: [{
+            text: "dialouge.intro.p1",
         },
         {
-            text: "You are a new Pokemon trainer who just arrived to the world of Pokemon.",
+            text: "dialouge.intro.p2",
         },
         {
-            text: "You are in the center of a town, where you can buy and sell Pokemon.",
+            text: "dialouge.intro.p3",
         },
         {
-            text: "You can also trade with other trainers.",
+            text: "dialouge.intro.p4",
+        },
+        {
+            text: "dialouge.intro.p5",
+        },
+        {
+            text: isMobile() ? "dialouge.intro.p6" : "dialouge.intro.p7",
         },
     ],
-    buttons: [{
-            text: "Start",
-            action: "start",
-        },
-        {
-            text: "Exit",
-            action: "exit",
-        },
-    ],
+};
+
+export const controls = {
+    dialouge: [{
+        click: "dialouge.controls.p1",
+    }, ],
 };

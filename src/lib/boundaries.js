@@ -1,12 +1,12 @@
 import { boundaries } from "./store.js";
 import { collisions } from "./collisions.js";
 import { Boundary } from "./classes.js";
-import { offset } from "./constants.js";
+import { offset, tiledMapWidth } from "./constants.js";
 
 export const generateBoundaries = () => {
     const collisionsMap = [];
-    for (let i = 0; i < collisions.length; i += 70) {
-        collisionsMap.push(collisions.slice(i, 70 + i));
+    for (let i = 0; i < collisions.length; i += tiledMapWidth) {
+        collisionsMap.push(collisions.slice(i, tiledMapWidth + i));
     }
 
     let boundariesMap = [];

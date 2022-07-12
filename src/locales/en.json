@@ -1,0 +1,16 @@
+{
+    "dialouge": {
+        "intro": {
+            "p1": "Hi there stranger 👋!",
+            "p2": "My name is Rowin Ruizendaal and I graduated in 2022 from the bachelor communication and multimedia design at the Hogeschool van Amsterdam",
+            "p3": "During my studies I managed to specialize in front-end development, where I started learning PHP programming and finding my way around the JavaScript world.",
+            "p4": "From this point on I work on my own projects and constantly learn new things.",
+            "p5": "Feel free to explore my portfolio and learn more about me.",
+            "p6": "You can use the gamepad to move around the map.",
+            "p7": "You can walk using the WASD keys to move around the map."
+        },
+        "controls": {
+            "continue": "Click to continue"
+        }
+    }
+}

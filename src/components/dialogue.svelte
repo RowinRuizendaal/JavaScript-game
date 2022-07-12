@@ -2,6 +2,9 @@
   import { onMount } from "svelte";
   import { dialogueActive } from "../lib/store";
   import { audio } from "../lib/audio.js";
+  import { _ as t } from "svelte-i18n";
+  import { get } from "svelte/store";
+
 
   export let text = {};
   export let visible = false;
@@ -9,12 +12,13 @@
   let dialougeText = "";
 
   const handleDialogueText = () => {
-    const length = text.description.length;
+    const length = text.dialouge.length;
 
-    audio.dialogueNext.play()
+    audio.dialogueNext.play();
 
     if (activeRow < length) {
-      dialougeText = text.description[activeRow].text;
+      dialougeText = get(t)(`${text.dialouge[activeRow].text}`);
+
       activeRow++;
     } else {
       activeRow = 0;
@@ -39,10 +43,13 @@
 {#if visible}
   <div class="box" on:click={handleDialogueText}>
     <div class="relative">
-      <p class="dialouge--text">{dialougeText}</p>
+      <p class="dialouge--text">{@html dialougeText}</p>
       <i on:click={handleDialogueText} />
-      <p class="click--guide">Click to continue</p>
+      <p class="click--guide">
+        <span>{$t('dialouge.controls.continue')}</span>
+      </p>
     </div>
+    <!-- <h1>{$_('page.contact.title')}</h1> -->
   </div>
 {/if}
 
@@ -73,7 +80,7 @@
   .box .relative i {
     border: 5px solid transparent;
     border-top-color: black;
-    animation: bounce 3s ease-in-out infinite alternate;
+    /* animation: bounce 3s ease-in-out infinite alternate; */
     position: absolute;
     right: 0;
     bottom: 0;
@@ -95,11 +102,10 @@
     text-align: center;
     font-size: 0.9rem;
     cursor: pointer;
+    animation: bounce 3s ease-in-out infinite alternate;
   }
 
-  @media only screen and (max-width: 768px) {
-    .box p {
-      line-height: 1.8rem;
-    }
+  .box p {
+    line-height: 1.8rem;
   }
 </style>
