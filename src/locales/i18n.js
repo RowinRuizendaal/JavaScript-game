@@ -8,5 +8,5 @@ addMessages("nl", nl);
 
 init({
     fallbackLocale: "en",
-    initialLocale: "en",
+    initialLocale: getLocaleFromNavigator(),
 });

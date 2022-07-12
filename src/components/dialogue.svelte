@@ -49,7 +49,6 @@
         <span>{$t('dialouge.controls.continue')}</span>
       </p>
     </div>
-    <!-- <h1>{$_('page.contact.title')}</h1> -->
   </div>
 {/if}
 
